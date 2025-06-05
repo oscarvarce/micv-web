@@ -1,8 +1,8 @@
 /* Variables de color */
 :root {
-    --primary: #3498db;
-    --dark: #2c3e50;
-    --light: #ecf0f1;
+    --primary: #2ecc71;  /* Verde moderno */
+    --dark: #34495e;     /* Azul oscuro */
+    --light: #f5f6fa;    /* Gris claro */
 }
 
 /* Reset básico */
@@ -90,4 +90,23 @@ footer {
         margin: 1rem;
         padding: 1.5rem;
     }
+}
+
+/* ... (tus estilos anteriores) ... */
+
+/* === Sección de Habilidades === */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px; /* Espacio arriba */
+}
+
+.skills-container span {
+    background: var(--primary); /* Usa el color principal que definiste */
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra opcional */
 }
