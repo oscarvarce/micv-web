@@ -92,7 +92,14 @@ footer {
     }
 }
 
-/* ... (tus estilos anteriores) ... */
+/* Justificar solo los párrafos de "Sobre mí" y "Experiencia" */
+#about p,
+.experience-text { /* Clase personalizada */
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    line-height: 1.6;
+}
 
 /* === Sección de Habilidades === */
 .skills-container {
@@ -103,10 +110,15 @@ footer {
 }
 
 .skills-container span {
-    background: var(--primary); /* Usa el color principal que definiste */
+    background: var(--dark); /* Azul oscuro */
     color: white;
     padding: 5px 15px;
     border-radius: 20px;
     font-size: 0.9rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+}
+
+.skills-container span:hover {
+    transform: translateY(-3px);
+    transition: transform 0.3s;
 }
