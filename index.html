@@ -1,39 +1,60 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" dir="ltr">
 <head>
+    <!-- Configuración básica del documento -->
     <meta charset="UTF-8">
+    <!-- Viewport para diseño responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hoja de vida de Oscar Mauricio Vargas Arce - Desarrollador Web con experiencia en...">
-    <meta name="keywords" content="CV, desarrollador web, JavaScript, HTML, CSS">
+    <!-- Meta descripción mejorada para SEO -->
+    <meta name="description" content="Oscar Mauricio Vargas Arce - Ingeniero de Sistemas con 8+ años en desarrollo web (JavaScript, React, Python) y 5 años como docente en tecnologías avanzadas.">
+    <!-- Keywords optimizadas -->
+    <meta name="keywords" content="CV, hoja de vida, desarrollador web, JavaScript, HTML, CSS, React, Python, docente TI">
+    <!-- Autor del documento -->
+    <meta name="author" content="Oscar Mauricio Vargas Arce">
+    <!-- Compatibilidad con IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Política de referrer para seguridad -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
     <title>Mi Hoja de Vida | Oscar Vargas Arce</title>
+    
+    <!-- Precarga de CSS para mejor performance -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+    <!-- Hojas de estilo -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=TU-ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'TU-ID');
-    </script>
+    <!-- Estilo para impresión -->
+    <link rel="stylesheet" href="print.css" media="print">
 </head>
-<body>
+<body>    
     <header>
         <div class="profile">
-            <img src="assets/foto-perfil.jpg" alt="Tu foto">
+            <!-- Imagen con texto alternativo descriptivo -->
+            <img src="assets/foto-perfil.jpg" alt="Foto de perfil de Oscar Vargas Arce, Ingeniero de Sistemas">
             <h1>Oscar Mauricio Vargas Arce</h1>
             <p>Ingeniero de Sistemas</p>
         </div>
+
+        <nav class="main-menu" aria-label="Navegación principal">
+            <ul>
+                <li><a href="#about"><i class="fas fa-user"></i> Sobre mí</a></li>
+                <li><a href="#experience"><i class="fas fa-briefcase"></i> Experiencia</a></li>
+                <li><a href="#education"><i class="fas fa-graduation-cap"></i> Educación</a></li>
+                <li><a href="#skills"><i class="fas fa-code"></i> Habilidades</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contacto</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
+    <main id="main">
         <section id="about">
             <h2><i class="fas fa-user"></i> Sobre mí</h2>
             <p>
                 Sólida trayectoria en análisis, diseño y desarrollo de software. 
-                Cuento con más de 8 años de experiencia en desarrollo con lenguajes como Java, HTML, CSS y JavaScript y 
-                manejo de base de datos SQL. Además, cuento con 5 años de experiencia docente en programación de software, 
+                Cuento con más de 8 años de experiencia en lenguajes como Java, HTML, CSS y JavaScript y 
+                manejo de base de datos SQL. Además, cuento con 5 años de experiencia docente en distintas tecnologías como programación de software,
+                bases de datos, desarrollo web, analítica de datos, inteligencia artificial y machine learning 
                 fomentando el crecimiento y la capacitación de nuevos talentos en el sector. Mis conocimientos abarcan herramientas 
                 y tecnologías clave como Python, GIT, MongoDB, React, Dockers, API Rest, analítica de datos, Power BI y ETLs.
             </p>
@@ -41,40 +62,138 @@
 
         <section id="experience">
             <h2><i class="fas fa-briefcase"></i> Experiencia</h2>
-            <div class="job">
-                <h3>Puesto de trabajo</h3>
-                <p class="company">Empresa | 2020-2023</p>
-                <ul>
-                    <li>Logro principal #1</li>
-                    <li>Logro principal #2</li>
+            
+            <!-- Mejor estructura semántica para experiencias laborales -->
+            <article class="job">
+                <h3>Ejecutor Técnico</h3>
+                <!-- Uso de span para fecha para mejor estilo CSS -->
+                <p class="company">Universidad de Antioquia<span class="date"> | Ene 2025 - Actual</span></p>
+                <ul class="achievements">
+                    <li>Líder en el acompañamiento en la formación de los cursos asignados durante el desarrollo 
+                        de los bootcamps de acuerdo con el contenido curricular y demás características contempladas 
+                        en el programa Talento Tech de MINTIC.</li>
+                    <li>Impartí formación en cursos de analítica de datos, inteligencia artificial, programación y 
+                        arquitectura en la nube.
+                    </li>
                 </ul>
-            </div>
+            </article>
+            
+            <article class="job">
+                <h3>Ingeniero de desarrollo</h3>
+                <p class="company">Hitss Colombia<span class="date">| Ene 2022 - Actual</span></p>
+                <ul class="achievements">
+                    <li>Líder técnico Java en el proyecto estrategia de datos INSPIRA de Claro.</li>
+                    <li>Desarrollé funcionalidades según los requerimientos del backlog entregado cada Sprint. 
+                        Gestioné el mantenimiento, ejecución y desarrollo de funciones del motor de procesamiento CDR's 
+                        de archivos XML.</li>
+                    <li>Administrador de la plataforma Gestiónate del proyecto MINTIC 7k.</li>
+                    <li>Me encargué de toda la gestión y el control del correcto funcionamiento de la plataforma, desde
+                        la administración de la base de datos, hasta la implementación de scripts de automatización
+                        para la medición de velocidad de los sitios en operación a nivel nacional.</li>
+                </ul>
+            </article>
+
+            <article class="job">
+                <h3>Líder Técnico Colpensiones</h3>
+                <!-- Uso de span para fecha para mejor estilo CSS -->
+                <p class="company">Serdan Misión Temporal<span class="date"> | Nov 2021 - Nov 2022</span></p>
+                <ul class="achievements">
+                    <li>Gestioné la entrega de componentes tecnológicos acordados con los proveedores, asegurando alineación a 
+                        la metodología definida, políticas y lineamientos de Arquitectura.</li>
+                    <li>Realicé el aseguramiento de las soluciones tecnológicas implementadas que brindaran las mejores 
+                        facilidades a los usuarios finales.
+                    </li>
+                    <li>Gestioné los proyectos de implementación de soluciones tecnológicas que atendían las necesidades del 
+                        negocio bajo metodologías ágiles.</li>
+                    <li>Articulé roles dentro y fuera de la entidad para lograr el cumplimiento de los planes de trabajo.</li>
+                </ul>
+            </article>
+
         </section>
 
         <section id="education">
             <h2><i class="fas fa-graduation-cap"></i> Educación</h2>
-            <p><strong>Universidad XYZ</strong> - Ingeniería de Software (2023)</p>
+            <!-- Lista semántica para educación -->
+            <ul class="education-list">
+                <li>
+                    <strong>Ingeniería de Sistemas:</strong>
+                    <span>Corporación Universitaria del Caribe - CECAR, 2016</span>
+                </li>
+            </ul>
         </section>
 
         <section id="skills">
             <h2><i class="fas fa-code"></i> Habilidades Técnicas</h2>
-            <div class="skills-container">
+            <!-- Contenedor semántico para habilidades -->
+            <div class="skills-container" aria-label="Habilidades técnicas">
                 <span>HTML/CSS</span>
                 <span>JavaScript</span>
                 <span>Git</span>
+                <span>Python</span>
+                <span>React</span>
+                <span>SQL</span>
+                <span>MongoDB</span>
+                <span>Docker</span>
+                <span>API Rest</span>
+                <span>Power BI</span>
+                <span>ETL</span>
+                <span>Data Analytics</span>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer id="contact">
         <h2>Contacto</h2>
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> <a href="mailto:ing_arce@outlook.com">ing_arce@outlook.com</a></p>
+            <p><i class="fas fa-phone"></i> <a href="tel:+573162828565">+57 316 282 8565</a></p>
+        </div>
         <div class="social">
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="mailto:tu@email.com"><i class="fas fa-envelope"></i></a>
+            <!-- Enlaces sociales con relaciones de seguridad -->
+            <a href="https://www.linkedin.com/in/ovarce/" target="_blank" rel="noopener noreferrer nofollow" aria-label="Visitar mi perfil de LinkedIn (se abre en nueva ventana)">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/ovarce" target="_blank" rel="noopener noreferrer nofollow" aria-label="Visitar mi perfil de GitHub (se abre en nueva ventana)">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://wa.me/573162828565?text=¡Hola!%20Estoy%20interesado%20en%20tu%20perfil%20profesional." target="_blank" rel="noopener noreferrer nofollow" aria-label="Enviar mensaje por WhatsApp (se abre en nueva ventana)">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        <!-- Botón flotante de WhatsApp -->
+        <div class="whatsapp-float">
+            <a href="https://wa.me/573162828565?text=¡Hola!%20Estoy%20interesado%20en%20tu%20perfil%20profesional." target="_blank" rel="noopener noreferrer nofollow" aria-label="Chat por WhatsApp (se abre en nueva ventana)">
+                <i class="fab fa-whatsapp"></i>
+                <span>Contáctame</span>
+            </a>
         </div>
     </footer>
 
+    <!-- Google Analytics al final para no bloquear render -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WT771B1DCT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WT771B1DCT');
+    </script>
+
+    <!-- Schema.org para SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Oscar Mauricio Vargas Arce",
+      "jobTitle": "Ingeniero de Sistemas",
+      "url": "https://tusitio.com", // Reemplazar con tu URL real
+      "sameAs": [
+        "https://linkedin.com/in/ovarce",
+        "https://github.com/ovarce"
+      ]
+    }
+    </script>
+
+    <!-- JavaScript al final del body -->
     <script src="scripts.js"></script>
 </body>
 </html>
