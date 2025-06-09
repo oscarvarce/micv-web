@@ -6,27 +6,18 @@
     --dark-80: rgba(52, 73, 94, 0.8); /* Azul oscuro con transparencia */
     --light: #f5f6fa;            /* Gris claro */
     --light-gray: #ecf0f1;       /* Gris claro secundario */
-    
-    /* Colores redes sociales */
     --linkedin: #0a66c2;
     --whatsapp: #25d366;
     --whatsapp-dark: #128c7e;
     --github: #f0f6fc;
-    
-    /* Sombras */
     --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.2);
     --shadow-lg: 0 6px 15px rgba(0, 0, 0, 0.3);
-    
-    /* Transiciones */
     --transition-fast: all 0.2s ease;
     --transition-normal: all 0.3s ease;
 }
 
-/* Reset mejorado */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -39,6 +30,7 @@ body {
     background-color: #f9f9f9;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ================ ESTRUCTURA PRINCIPAL ================ */
@@ -56,19 +48,74 @@ section {
     max-width: 800px;
     border-radius: 8px;
     box-shadow: var(--shadow-sm);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 footer {
     text-align: center;
     padding: 2rem;
     background: var(--dark);
-    color: white;
+    color: var(--light-gray);
 }
 
-/* ================ COMPONENTES REUTILIZABLES ================ */
-/* ----- Menú de navegación ----- */
+/* ================ TIPOGRAFÍA ================ */
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #2c3e50; /* Color sólido para mejor legibilidad */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
+    color: #ecf0f1; /* Color claro para modo oscuro */
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ================ HERO SECTION ================ */
+.hero {
+    background: linear-gradient(135deg, var(--primary), #2980b9);
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-btn {
+    font-size: 1.1rem;
+    padding: 0.75rem 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+/* ================ SEPARATORS Y REUTILIZABLES === */
 .main-menu {
-    margin-top: 1.5rem;
+    margin-top:1.5rem;
 }
 
 .main-menu ul {
@@ -96,18 +143,178 @@ footer {
     transform: translateY(-2px);
 }
 
-/* ----- Párrafos justificados ----- */
-/* Aplicado específicamente a "sobre mí" y "experiencia" como solicitaste */
-#about p,
-.job ul {
-    text-align: justify;
-    text-justify: inter-word;
-    hyphens: auto;
-    line-height: 1.7;
-    margin-bottom: 1rem;
+/* ===== SWITCH DE TEMA ===== */
+.theme-switch-wrapper {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* ----- Tarjetas de habilidades ----- */
+.theme-switch {
+    display: inline-block;
+    height: 24px;
+    width: 50px;
+    position: relative;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--dark);
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--primary);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+#theme-label {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* ===== ESTILOS PARA TEMA OSCURO ===== */
+body.dark-mode {
+    --dark: #ecf0f1;
+    --light: #2c3e50;
+    color: var(--dark);
+    background-color: #1a252f;
+}
+
+body.dark-mode section {
+    background-color: #2c3e50;
+    color: var(--dark);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .company {
+    color: #bdc3c7;
+}
+
+body.dark-mode footer {
+    background: #1a252f;
+    color: var(--light-gray);
+}
+
+body.dark-mode .skills-container span {
+    background: #4a5e74;
+    color: var(--light-gray);
+}
+
+body.dark-mode .skills-container span:hover {
+    background: var(--primary);
+    color: white;
+}
+
+body.dark-mode .certification-card {
+    background: #2c3e50;
+}
+
+body.dark-mode .tech-badge {
+    background: #4a5e74;
+}
+
+/* ===== TIMELINE PARA EXPERIENCIA ===== */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--primary);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    background: rgba(255, 255, 255, 0.9); /* Fondo sutil para uniformidad */
+    border-radius: 6px;
+    padding: 1.5rem;
+}
+
+body.dark-mode .timeline-item {
+    background: rgba(44, 62, 80, 0.9); /* Fondo para modo oscuro */
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -0.9rem;
+    top: 0.5rem;
+    width: 12px;
+    height: 12px;
+    background: var(--primary-dark);
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+body.dark-mode .timeline::before {
+    background: var(--primary-dark);
+}
+
+body.dark-mode .timeline-item::before {
+    background: var(--primary);
+    border-color: #2c3e50;
+}
+
+.timeline-content {
+    padding: 1rem;
+}
+
+.achievements {
+    margin-top: 1rem;
+    list-style: none;
+}
+
+.achievements li {
+    text-align: justify;
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--primary-dark);
+}
+
+body.dark-mode .achievements li {
+    border-left-color: var(--primary);
+}
+
+/* ===== HABILIDADES ===== */
 .skills-container {
     display: flex;
     flex-wrap: wrap;
@@ -126,13 +333,14 @@ footer {
 }
 
 .skills-container span:hover {
-    transform: translateY(-3px);
+    transform: scale(1.1);
     background: var(--primary);
 }
 
-/* ----- Información de contacto ----- */
+/* ===== CONTACTO ===== */
 .contact-info {
     margin: 1rem 0;
+    text-align: center;
 }
 
 .contact-info p {
@@ -141,12 +349,16 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 0.8rem;
+    flex-wrap: wrap;
 }
 
 .contact-info a {
     color: white;
     text-decoration: none;
     transition: var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
 }
 
 .contact-info a:hover {
@@ -154,7 +366,7 @@ footer {
     text-decoration: underline;
 }
 
-/* ----- Redes sociales ----- */
+/* ===== REDES SOCIALES ===== */
 .social {
     display: flex;
     justify-content: center;
@@ -176,8 +388,7 @@ footer {
 .social a[href*="github"] { color: var(--github); }
 .social a[href*="wa.me"] { color: var(--whatsapp); }
 
-/* ================ COMPONENTES ESPECÍFICOS ================ */
-/* ----- Perfil ----- */
+/* ===== PERFIL ===== */
 .profile img {
     width: 150px;
     height: 150px;
@@ -187,31 +398,139 @@ footer {
     margin-bottom: 1rem;
 }
 
-/* ----- Experiencia laboral ----- */
-.job {
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--light-gray);
+/* ===== PROYECTOS ===== */
+#projects {
+    background-color: var(--light);
 }
 
-.job:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
 }
 
-.company {
-    color: var(--dark-80);
-    font-weight: 500;
+.project-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.project-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-tech {
+    display: flex;
+    gap: 0.5rem;
     margin: 0.5rem 0;
 }
 
-.date {
-    color: #7f8c8d;
-    font-size: 0.9rem;
+.tech-badge {
+    background: var(--primary-dark);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
 }
 
-/* ----- Botón flotante de WhatsApp ----- */
+.project-description {
+    margin: 1rem 0;
+    flex-grow: 1;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--primary);
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn.github {
+    background: #333;
+}
+
+.btn.github:hover {
+    background: #222;
+}
+
+.cv-download {
+    background: #e74c3c;
+    font-size: 1.1rem;
+    padding: 0.75rem 2rem;
+}
+
+.cv-download:hover {
+    background: #c0392b;
+}
+
+/* ===== CERTIFICACIONES ===== */
+.certifications-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.certification-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+}
+
+.certification-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ===== WHATSAPP FLOTANTE ===== */
 .whatsapp-float {
     position: fixed;
     bottom: 30px;
@@ -242,25 +561,104 @@ footer {
     font-size: 1.5rem;
 }
 
-/* ================ MEDIA QUERIES ================ */
+/* ===== BOTÓN VOLVER ARRIBA ===== */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 80px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-normal);
+    box-shadow: var(--shadow-md);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+}
+
+/* ===== PRELOADER ===== */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--primary);
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ===== MEDIA QUERIES ===== */
 @media (max-width: 768px) {
     .main-menu ul {
         flex-direction: column;
         align-items: center;
         gap: 0.5rem;
     }
-    
+
     .whatsapp-float {
         bottom: 20px;
         right: 20px;
     }
-    
+
     .whatsapp-float a {
         padding: 10px 15px;
     }
-    
+
     .whatsapp-float span {
         display: none;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .back-to-top {
+        right: 20px;
+        bottom: 80px;
+    }
+
+    .achievements li {
+        font-size: 0.9rem;
+        padding-left: 0.75rem;
+        margin-bottom: 0.5rem;
     }
 }
 
@@ -269,9 +667,26 @@ footer {
         margin: 1rem;
         padding: 1.5rem;
     }
-    
+
     .profile img {
         width: 120px;
         height: 120px;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .timeline-content {
+        padding: 0.75rem;
+    }
+
+    .achievements li {
+        font-size: 0.85rem;
+        padding-left: 0.5rem;
     }
 }
