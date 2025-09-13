@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principios UI/UX Ejemplo Práctico</title>
+
+    <!-- Enlace para vincular el archivo CSS externo-->
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+            <h1>Principios de Diseño UI/UX</h1>
+            <p class="subtitle">Ejemplo práctico de aplicación de principios de diseño</p>
+        </header>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#principios">Principios</a>
+            <a href="#accesibilidad">Accesibilidad</a>
+            <a href="#ejemplos">Ejemplos</a>
+        </nav>
+
+        <div class="content">
+
+            <section id="inicio">
+
+                <h2>Introducción a UI/UX</h2>
+                <p>
+                    UI (Interfaz de Usuario) se refiere al diseño visual de los elementos con los que el usuario interactúa. 
+                    UX (Experiencia de Usuario) se refiere a la percepción y emociones del usuario al interactuar con un producto.
+                </p>
+
+                <div class="card">
+                    <h3>Diferencia entre UI y UX</h3>
+                    <p><strong>UI</strong>es cómo se ve la interfaz: colores, botones, iconos, tipografía.</p>
+                    <p><strong>UX</strong> es cómo se siente la experiencia: facilidad de uso, eficiencia, satisfacción.</p>
+                </div>
+
+            </section>
+
+            <section id="principios">
+
+                <h2>Principios Básicos de Diseño Web</h2>
+
+                <h3>Jerarquía Visual Clara</h3>
+                <p>Usamos diferentes tamaños de encabezados para organizar el contenido según su importancia.</p>
+
+                <h3>Navegación Intuitiva</h3>
+                <p>El menú de navegación es claro y visible, con enlaces descriptivos.</p>
+
+                <h3>Consistencia en el Diseño</h3>
+                <p>Mantenemos colores, tipografías y estilos consistentes en toda la página.</p>
+
+                <h3>Tipografía Legible y Contraste Adecuado</h3>
+                <div class="contrast-example good=contrast">
+                    <p>Este es un ejemplo de buen contraste: texto claro sobre fondo oscuro.</p>
+                </div>
+                <div class="contrast-example bad=contrast">
+                    <p>Este es un ejemplo de mal contraste: texto y fondo con colores similares.</p>
+                </div>
+
+                <h3>Espaciado Suficiente</h3>
+                <p>Utilizamos márgenes y padding adecuados para evitar saturación visual.</p>
+
+            </section>  
+
+            <section id="accesibilidad">
+
+                <h2>Accesibilidad Web</h2>
+
+                <div class="accessibility-tips">
+                    <h3>Texto Alternativo para Imágenes</h3>
+                    <p>Todas las imágenes deben tener el atributo "alt" con una descripción para usuarios con discapacidad visual.</p>
+                    <p><code>&lt;img src="imagen.jpg" alt="Descripción de la imagen"&gt;</code></p>
+                </div>
+
+                <div class="accessibility-tips">
+                    <h3>Navegación con Teclado</h3>
+                    <p>Debe ser posible navegar por el sitio web usando solo el teclado (con la tecla Tab).</p>
+                </div>
+
+                 <div class="accessibility-tips">
+                    <h3>Contraste Adecuado</h3>
+                    <p>El texto debe tener suficiente contraste con el fondo para ser legible.</p>
+                </div>
+
+                <h3>Formulario Accesible</h3>
+                <form>
+
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo electrónico:</label>
+                        <input type="text" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje:</label>
+                        <input type="text" id="mensaje" name="mensaje" required>
+                    </div>
+
+                    <button type="submit">Enviar mensaje</button>
+                    
+                </form>
+
+            </section>
+
+            <section id="ejemplos">
+
+                <h2>Ejemplos de Buenas Prácticas</h2>
+
+                <div class="card">
+                    <h3>Feedback Visual</h3>
+                    <p>Los botones cambian de color al pasar el cursor sobre ellos, indicando que son interactivos.</p>
+                    <button>Botón de ejemplo</button>
+                </div>
+
+                <div class="card">
+                    <h3>Mensajes de Error Claros</h3>
+                    <p>Los formularios deben mostrar mensajes de error específicos cuando hay problemas con la entrada de datos.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Diseño Responsive</h3>
+                    <p>La página se adapta a diferentes tamaños de pantalla (escritorio, tablet, móvil).</p>
+                </div>
+
+            </section>
+
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Principios UI/UX. Todos los derechos reservados.</p>
+            <p>Ejemplo de principios UI/UX - Fábrica de Desarrolladores</p>
+        </footer>
+
+    </div>
+
+    <!-- Enlace al archivo Javascript Externo-->
+    <script src="script.js"></script>
+
+</body>
+</html>
